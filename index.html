@@ -100,9 +100,9 @@
             // States
             { state: "Andhra Pradesh", capital: "Amaravati", governor: "S. Abdul Nazeer", chiefMinister: "N. Chandrababu Naidu", isUT: false },
             { state: "Arunachal Pradesh", capital: "Itanagar", governor: "Kaiwalya Trivikram Parnaik", chiefMinister: "Pema Khandu", isUT: false },
-            { state: "Assam", capital: "Dispur", governor: "Lakshman Acharya", chiefMinister: "Himanta Biswa Sarma", isUT: false },
+            { state: "Assam", capital: "Dispur", governor: "Lakshman Prasad Acharya", chiefMinister: "Himanta Biswa Sarma", isUT: false },
             { state: "Bihar", capital: "Patna", governor: "Rajendra Arlekar", chiefMinister: "Nitish Kumar", isUT: false },
-            { state: "Chhattisgarh", capital: "Raipur", governor: "Ramen Boro", chiefMinister: "Vishnu Deo Sai", isUT: false },
+            { state: "Chhattisgarh", capital: "Raipur", governor: "Biswabhusan Harichandan", chiefMinister: "Vishnu Deo Sai", isUT: false },
             { state: "Goa", capital: "Panaji", governor: "P. S. Sreedharan Pillai", chiefMinister: "Pramod Sawant", isUT: false },
             { state: "Gujarat", capital: "Gandhinagar", governor: "Acharya Devvrat", chiefMinister: "Bhupendrabhai Patel", isUT: false },
             { state: "Haryana", capital: "Chandigarh", governor: "Bandaru Dattatreya", chiefMinister: "Nayab Singh Saini", isUT: false },
@@ -111,13 +111,13 @@
             { state: "Karnataka", capital: "Bengaluru", governor: "Thawar Chand Gehlot", chiefMinister: "Siddaramaiah", isUT: false },
             { state: "Kerala", capital: "Thiruvananthapuram", governor: "Arif Mohammad Khan", chiefMinister: "Pinarayi Vijayan", isUT: false },
             { state: "Madhya Pradesh", capital: "Bhopal", governor: "Mangubhai C. Patel", chiefMinister: "Mohan Yadav", isUT: false },
-            { state: "Maharashtra", capital: "Mumbai", governor: "C. P. Radhakrishnan", chiefMinister: "Eknath Shinde", isUT: false },
+            { state: "Maharashtra", capital: "Mumbai", governor: "C. P. Radhakrishnan", chiefMinister: "Devendra Fadnavis", isUT: false },
             { state: "Manipur", capital: "Imphal", governor: "Anusuiya Uikey", chiefMinister: "N. Biren Singh", isUT: false },
-            { state: "Meghalaya", capital: "Shillong", governor: "Phagu Chauhan", chiefMinister: "Conrad Sangma", isUT: false },
+            { state: "Meghalaya", capital: "Shillong", governor: "C.H. Vijayashankar", chiefMinister: "Conrad Sangma", isUT: false },
             { state: "Mizoram", capital: "Aizawl", governor: "Kambhampati Hari Babu", chiefMinister: "Lalduhoma", isUT: false },
             { state: "Nagaland", capital: "Kohima", governor: "La. Ganesan", chiefMinister: "Neiphiu Rio", isUT: false },
             { state: "Odisha", capital: "Bhubaneswar", governor: "Raghubar Das", chiefMinister: "Mohan Charan Majhi", isUT: false },
-            { state: "Punjab", capital: "Chandigarh", governor: "Gulab Chand Kataria", chiefMinister: "Bhagwant Mann", isUT: false },
+            { state: "Punjab", capital: "Chandigarh", governor: "Gulab Chand Kataria (Addl. Charge)", chiefMinister: "Bhagwant Mann", isUT: false },
             { state: "Rajasthan", capital: "Jaipur", governor: "Kalraj Mishra", chiefMinister: "Bhajan Lal Sharma", isUT: false },
             { state: "Sikkim", capital: "Gangtok", governor: "Om Prakash Mathur", chiefMinister: "Prem Singh Tamang", isUT: false },
             { state: "Tamil Nadu", capital: "Chennai", governor: "R. N. Ravi", chiefMinister: "M. K. Stalin", isUT: false },
@@ -130,11 +130,11 @@
             { state: "Andaman and Nicobar Islands", capital: "Port Blair", governor: "Devendra Kumar Joshi (Lt. Governor)", chiefMinister: "N/A", isUT: true },
             { state: "Chandigarh", capital: "Chandigarh", governor: "Gulab Chand Kataria (Administrator)", chiefMinister: "N/A", isUT: true },
             { state: "Dadra and Nagar Haveli and Daman and Diu", capital: "Daman", governor: "Praful Khoda Patel (Administrator)", chiefMinister: "N/A", isUT: true },
-            { state: "Delhi", capital: "New Delhi", governor: "Vinai Kumar Saxena (Lt. Governor)", chiefMinister: "Arvind Kejriwal", isUT: true },
-            { state: "Jammu and Kashmir", capital: "Srinagar (Summer), Jammu (Winter)", governor: "Manoj Sinha (Lt. Governor)", chiefMinister: "Umar Abdullah", isUT: true },
+            { state: "Delhi", capital: "New Delhi", governor: "Vinai Kumar Saxena (Lt. Governor)", chiefMinister: "Rekha Gupta", isUT: true },
+            { state: "Jammu and Kashmir", capital: "Srinagar (Summer), Jammu (Winter)", governor: "Manoj Sinha (Lt. Governor)", chiefMinister: "Omar Abdullah", isUT: true },
             { state: "Ladakh", capital: "Leh", governor: "B. D. Mishra (Lt. Governor)", chiefMinister: "N/A", isUT: true },
             { state: "Lakshadweep", capital: "Kavaratti", governor: "Praful Khoda Patel (Administrator)", chiefMinister: "N/A", isUT: true },
-            { state: "Puducherry", capital: "Puducherry", governor: "C. P. Radhakrishnan (Lt. Governor)", chiefMinister: "N. Rangasamy", isUT: true }
+            { state: "Puducherry", capital: "Puducherry", governor: "Kuniyil Kailashnathan (Lt. Governor)", chiefMinister: "N. Rangasamy", isUT: true }
         ];
 
         let currentIndex = 0;
@@ -230,7 +230,7 @@
             }
 
             const revealRandomChar = (fullString, revealedIndices) => {
-                 if (!fullString || fullString === "N/A") return;
+                 if (!fullString || fullString === "N/A" || fullString === "President's Rule") return;
                  const unrevealed = [];
                  for(let i = 0; i < fullString.length; i++) {
                      if (fullString[i].match(/[a-z0-9]/i) && !revealedIndices.includes(i)) {
@@ -244,7 +244,7 @@
             };
             
             const generateHintString = (fullString, revealedIndices) => {
-                if (!fullString || fullString === "N/A") return "N/A";
+                if (!fullString || fullString === "N/A" || fullString === "President's Rule") return fullString;
                 return fullString.split('').map((char, index) => {
                     return (revealedIndices.includes(index) || !char.match(/[a-z0-9]/i)) ? char : '•';
                 }).join('');
