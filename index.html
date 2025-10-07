@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian States, Capitals & Governors Quiz</title>
+    <title>Indian States, Capitals, Governors & CMs Quiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -33,7 +33,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1.5rem; /* Adjusted padding */
             border-radius: 1rem;
         }
         .card-front {
@@ -49,9 +49,9 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-md mx-auto">
-        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">Indian States, Capitals & Governors Quiz</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">Indian States, Capitals, Governors & CMs Quiz</h1>
 
-        <div class="card-container h-80 md:h-96">
+        <div class="card-container h-[26rem] md:h-[28rem]">
             <div id="flashcard" class="card">
                 <!-- Card Front (Question) -->
                 <div class="card-face card-front shadow-lg">
@@ -63,9 +63,11 @@
                 <div class="card-face card-back shadow-lg">
                     <div class="text-center">
                         <p class="text-gray-600 font-medium">Capital:</p>
-                        <h3 id="capital-name" class="text-2xl md:text-3xl font-bold text-sky-700 mb-4"></h3>
+                        <h3 id="capital-name" class="text-xl md:text-2xl font-bold text-sky-700 mb-3"></h3>
                         <p class="text-gray-600 font-medium">Governor / Lt. Governor:</p>
-                        <h3 id="governor-name" class="text-2xl md:text-3xl font-bold text-sky-700"></h3>
+                        <h3 id="governor-name" class="text-xl md:text-2xl font-bold text-sky-700 mb-3"></h3>
+                        <p class="text-gray-600 font-medium">Chief Minister:</p>
+                        <h3 id="cm-name" class="text-xl md:text-2xl font-bold text-sky-700"></h3>
                     </div>
                 </div>
             </div>
@@ -96,53 +98,55 @@
     <script>
         const data = [
             // States
-            { state: "Andhra Pradesh", capital: "Amaravati", governor: "S. Abdul Nazeer", isUT: false },
-            { state: "Arunachal Pradesh", capital: "Itanagar", governor: "Kaiwalya Trivikram Parnaik", isUT: false },
-            { state: "Assam", capital: "Dispur", governor: "Lakshman Acharya", isUT: false },
-            { state: "Bihar", capital: "Patna", governor: "Rajendra Arlekar", isUT: false },
-            { state: "Chhattisgarh", capital: "Raipur", governor: "Ramen Boro", isUT: false },
-            { state: "Goa", capital: "Panaji", governor: "P. S. Sreedharan Pillai", isUT: false },
-            { state: "Gujarat", capital: "Gandhinagar", governor: "Acharya Devvrat", isUT: false },
-            { state: "Haryana", capital: "Chandigarh", governor: "Bandaru Dattatreya", isUT: false },
-            { state: "Himachal Pradesh", capital: "Shimla", governor: "Shiv Pratap Shukla", isUT: false },
-            { state: "Jharkhand", capital: "Ranchi", governor: "Santosh Kumar Gangwar", isUT: false },
-            { state: "Karnataka", capital: "Bengaluru", governor: "Thawar Chand Gehlot", isUT: false },
-            { state: "Kerala", capital: "Thiruvananthapuram", governor: "Arif Mohammad Khan", isUT: false },
-            { state: "Madhya Pradesh", capital: "Bhopal", governor: "Mangubhai C. Patel", isUT: false },
-            { state: "Maharashtra", capital: "Mumbai", governor: "C. P. Radhakrishnan", isUT: false },
-            { state: "Manipur", capital: "Imphal", governor: "Anusuiya Uikey", isUT: false },
-            { state: "Meghalaya", capital: "Shillong", governor: "Phagu Chauhan", isUT: false },
-            { state: "Mizoram", capital: "Aizawl", governor: "Kambhampati Hari Babu", isUT: false },
-            { state: "Nagaland", capital: "Kohima", governor: "La. Ganesan", isUT: false },
-            { state: "Odisha", capital: "Bhubaneswar", governor: "Raghubar Das", isUT: false },
-            { state: "Punjab", capital: "Chandigarh", governor: "Gulab Chand Kataria", isUT: false },
-            { state: "Rajasthan", capital: "Jaipur", governor: "Kalraj Mishra", isUT: false },
-            { state: "Sikkim", capital: "Gangtok", governor: "Om Prakash Mathur", isUT: false },
-            { state: "Tamil Nadu", capital: "Chennai", governor: "R. N. Ravi", isUT: false },
-            { state: "Telangana", capital: "Hyderabad", governor: "Jishnu Dev Varma", isUT: false },
-            { state: "Tripura", capital: "Agartala", governor: "Nallu Indrasena Reddy", isUT: false },
-            { state: "Uttar Pradesh", capital: "Lucknow", governor: "Anandiben Patel", isUT: false },
-            { state: "Uttarakhand", capital: "Dehradun", governor: "Gurmit Singh", isUT: false },
-            { state: "West Bengal", capital: "Kolkata", governor: "C. V. Ananda Bose", isUT: false },
+            { state: "Andhra Pradesh", capital: "Amaravati", governor: "S. Abdul Nazeer", chiefMinister: "N. Chandrababu Naidu", isUT: false },
+            { state: "Arunachal Pradesh", capital: "Itanagar", governor: "Kaiwalya Trivikram Parnaik", chiefMinister: "Pema Khandu", isUT: false },
+            { state: "Assam", capital: "Dispur", governor: "Lakshman Acharya", chiefMinister: "Himanta Biswa Sarma", isUT: false },
+            { state: "Bihar", capital: "Patna", governor: "Rajendra Arlekar", chiefMinister: "Nitish Kumar", isUT: false },
+            { state: "Chhattisgarh", capital: "Raipur", governor: "Ramen Boro", chiefMinister: "Vishnu Deo Sai", isUT: false },
+            { state: "Goa", capital: "Panaji", governor: "P. S. Sreedharan Pillai", chiefMinister: "Pramod Sawant", isUT: false },
+            { state: "Gujarat", capital: "Gandhinagar", governor: "Acharya Devvrat", chiefMinister: "Bhupendrabhai Patel", isUT: false },
+            { state: "Haryana", capital: "Chandigarh", governor: "Bandaru Dattatreya", chiefMinister: "Nayab Singh Saini", isUT: false },
+            { state: "Himachal Pradesh", capital: "Shimla", governor: "Shiv Pratap Shukla", chiefMinister: "Sukhvinder Singh Sukhu", isUT: false },
+            { state: "Jharkhand", capital: "Ranchi", governor: "Santosh Kumar Gangwar", chiefMinister: "Hemant Soren", isUT: false },
+            { state: "Karnataka", capital: "Bengaluru", governor: "Thawar Chand Gehlot", chiefMinister: "Siddaramaiah", isUT: false },
+            { state: "Kerala", capital: "Thiruvananthapuram", governor: "Arif Mohammad Khan", chiefMinister: "Pinarayi Vijayan", isUT: false },
+            { state: "Madhya Pradesh", capital: "Bhopal", governor: "Mangubhai C. Patel", chiefMinister: "Mohan Yadav", isUT: false },
+            { state: "Maharashtra", capital: "Mumbai", governor: "C. P. Radhakrishnan", chiefMinister: "Eknath Shinde", isUT: false },
+            { state: "Manipur", capital: "Imphal", governor: "Anusuiya Uikey", chiefMinister: "N. Biren Singh", isUT: false },
+            { state: "Meghalaya", capital: "Shillong", governor: "Phagu Chauhan", chiefMinister: "Conrad Sangma", isUT: false },
+            { state: "Mizoram", capital: "Aizawl", governor: "Kambhampati Hari Babu", chiefMinister: "Lalduhoma", isUT: false },
+            { state: "Nagaland", capital: "Kohima", governor: "La. Ganesan", chiefMinister: "Neiphiu Rio", isUT: false },
+            { state: "Odisha", capital: "Bhubaneswar", governor: "Raghubar Das", chiefMinister: "Mohan Charan Majhi", isUT: false },
+            { state: "Punjab", capital: "Chandigarh", governor: "Gulab Chand Kataria", chiefMinister: "Bhagwant Mann", isUT: false },
+            { state: "Rajasthan", capital: "Jaipur", governor: "Kalraj Mishra", chiefMinister: "Bhajan Lal Sharma", isUT: false },
+            { state: "Sikkim", capital: "Gangtok", governor: "Om Prakash Mathur", chiefMinister: "Prem Singh Tamang", isUT: false },
+            { state: "Tamil Nadu", capital: "Chennai", governor: "R. N. Ravi", chiefMinister: "M. K. Stalin", isUT: false },
+            { state: "Telangana", capital: "Hyderabad", governor: "Jishnu Dev Varma", chiefMinister: "Revanth Reddy", isUT: false },
+            { state: "Tripura", capital: "Agartala", governor: "Nallu Indrasena Reddy", chiefMinister: "Manik Saha", isUT: false },
+            { state: "Uttar Pradesh", capital: "Lucknow", governor: "Anandiben Patel", chiefMinister: "Yogi Adityanath", isUT: false },
+            { state: "Uttarakhand", capital: "Dehradun", governor: "Gurmit Singh", chiefMinister: "Pushkar Singh Dhami", isUT: false },
+            { state: "West Bengal", capital: "Kolkata", governor: "C. V. Ananda Bose", chiefMinister: "Mamata Banerjee", isUT: false },
             // Union Territories
-            { state: "Andaman and Nicobar Islands", capital: "Port Blair", governor: "Devendra Kumar Joshi (Lt. Governor)", isUT: true },
-            { state: "Chandigarh", capital: "Chandigarh", governor: "Gulab Chand Kataria (Administrator)", isUT: true },
-            { state: "Dadra and Nagar Haveli and Daman and Diu", capital: "Daman", governor: "Praful Khoda Patel (Administrator)", isUT: true },
-            { state: "Delhi", capital: "New Delhi", governor: "Vinai Kumar Saxena (Lt. Governor)", isUT: true },
-            { state: "Jammu and Kashmir", capital: "Srinagar (Summer), Jammu (Winter)", governor: "Manoj Sinha (Lt. Governor)", isUT: true },
-            { state: "Ladakh", capital: "Leh", governor: "B. D. Mishra (Lt. Governor)", isUT: true },
-            { state: "Lakshadweep", capital: "Kavaratti", governor: "Praful Khoda Patel (Administrator)", isUT: true },
-            { state: "Puducherry", capital: "Puducherry", governor: "C. P. Radhakrishnan (Lt. Governor)", isUT: true }
+            { state: "Andaman and Nicobar Islands", capital: "Port Blair", governor: "Devendra Kumar Joshi (Lt. Governor)", chiefMinister: "N/A", isUT: true },
+            { state: "Chandigarh", capital: "Chandigarh", governor: "Gulab Chand Kataria (Administrator)", chiefMinister: "N/A", isUT: true },
+            { state: "Dadra and Nagar Haveli and Daman and Diu", capital: "Daman", governor: "Praful Khoda Patel (Administrator)", chiefMinister: "N/A", isUT: true },
+            { state: "Delhi", capital: "New Delhi", governor: "Vinai Kumar Saxena (Lt. Governor)", chiefMinister: "Arvind Kejriwal", isUT: true },
+            { state: "Jammu and Kashmir", capital: "Srinagar (Summer), Jammu (Winter)", governor: "Manoj Sinha (Lt. Governor)", chiefMinister: "Umar Abdullah", isUT: true },
+            { state: "Ladakh", capital: "Leh", governor: "B. D. Mishra (Lt. Governor)", chiefMinister: "N/A", isUT: true },
+            { state: "Lakshadweep", capital: "Kavaratti", governor: "Praful Khoda Patel (Administrator)", chiefMinister: "N/A", isUT: true },
+            { state: "Puducherry", capital: "Puducherry", governor: "C. P. Radhakrishnan (Lt. Governor)", chiefMinister: "N. Rangasamy", isUT: true }
         ];
 
         let currentIndex = 0;
-        let capitalHintIndex = 0;
-        let governorHintIndex = 0;
+        let capitalRevealedIndices = [];
+        let governorRevealedIndices = [];
+        let cmRevealedIndices = [];
 
         const flashcard = document.getElementById('flashcard');
         const stateNameEl = document.getElementById('state-name');
         const capitalNameEl = document.getElementById('capital-name');
         const governorNameEl = document.getElementById('governor-name');
+        const cmNameEl = document.getElementById('cm-name');
         const utLabelEl = document.getElementById('ut-label');
         const progressEl = document.getElementById('progress');
 
@@ -163,23 +167,18 @@
             stateNameEl.textContent = currentData.state;
             capitalNameEl.textContent = '???';
             governorNameEl.textContent = '???';
+            cmNameEl.textContent = '???';
             
-            // Show UT Label if it's a Union Territory
-            if (currentData.isUT) {
-                utLabelEl.classList.remove('hidden');
-            } else {
-                utLabelEl.classList.add('hidden');
-            }
+            utLabelEl.classList.toggle('hidden', !currentData.isUT);
 
-            // Reset card flip
             if (flashcard.classList.contains('is-flipped')) {
                 flashcard.classList.remove('is-flipped');
                 flipBtn.textContent = 'Flip Card';
             }
             
-            // Reset hint indices
-            capitalHintIndex = 0;
-            governorHintIndex = 0;
+            capitalRevealedIndices = [];
+            governorRevealedIndices = [];
+            cmRevealedIndices = [];
 
             updateProgress();
         }
@@ -192,6 +191,7 @@
             const currentData = data[currentIndex];
             capitalNameEl.textContent = currentData.capital;
             governorNameEl.textContent = currentData.governor;
+            cmNameEl.textContent = currentData.chiefMinister;
         }
 
         flipBtn.addEventListener('click', () => {
@@ -202,10 +202,11 @@
             } else {
                 capitalNameEl.textContent = '???';
                 governorNameEl.textContent = '???';
+                cmNameEl.textContent = '???';
                 flipBtn.textContent = 'Flip Card';
-                // Reset hints when flipping back to the question
-                capitalHintIndex = 0;
-                governorHintIndex = 0;
+                capitalRevealedIndices = [];
+                governorRevealedIndices = [];
+                cmRevealedIndices = [];
             }
         });
 
@@ -221,34 +222,41 @@
 
         hintBtn.addEventListener('click', () => {
             const currentData = data[currentIndex];
-            const capital = currentData.capital;
-            const governor = currentData.governor;
+            const { capital, governor, chiefMinister } = currentData;
 
-            // Flip to answer side if not already flipped
             if (!flashcard.classList.contains('is-flipped')) {
                 flashcard.classList.add('is-flipped');
                 flipBtn.textContent = 'Flip Back';
             }
-            
-            // Reveal capital hint
-            if(capitalHintIndex < capital.length) {
-                let revealedCapital = capital.substring(0, capitalHintIndex + 1);
-                let hiddenCapital = ''.repeat(capital.length - (capitalHintIndex + 1));
-                capitalNameEl.textContent = revealedCapital + hiddenCapital;
-                capitalHintIndex++;
-            } else {
-                 capitalNameEl.textContent = capital;
-            }
 
-            // Reveal governor hint
-            if(governorHintIndex < governor.length) {
-                let revealedGovernor = governor.substring(0, governorHintIndex + 1);
-                let hiddenGovernor = ''.repeat(governor.length - (governorHintIndex + 1));
-                governorNameEl.textContent = revealedGovernor + hiddenGovernor;
-                governorHintIndex++;
-            } else {
-                governorNameEl.textContent = governor;
-            }
+            const revealRandomChar = (fullString, revealedIndices) => {
+                 if (!fullString || fullString === "N/A") return;
+                 const unrevealed = [];
+                 for(let i = 0; i < fullString.length; i++) {
+                     if (fullString[i].match(/[a-z0-9]/i) && !revealedIndices.includes(i)) {
+                         unrevealed.push(i);
+                     }
+                 }
+                 if (unrevealed.length > 0) {
+                     const randIndex = Math.floor(Math.random() * unrevealed.length);
+                     revealedIndices.push(unrevealed[randIndex]);
+                 }
+            };
+            
+            const generateHintString = (fullString, revealedIndices) => {
+                if (!fullString || fullString === "N/A") return "N/A";
+                return fullString.split('').map((char, index) => {
+                    return (revealedIndices.includes(index) || !char.match(/[a-z0-9]/i)) ? char : '•';
+                }).join('');
+            };
+            
+            revealRandomChar(capital, capitalRevealedIndices);
+            revealRandomChar(governor, governorRevealedIndices);
+            revealRandomChar(chiefMinister, cmRevealedIndices);
+
+            capitalNameEl.textContent = generateHintString(capital, capitalRevealedIndices);
+            governorNameEl.textContent = generateHintString(governor, governorRevealedIndices);
+            cmNameEl.textContent = generateHintString(chiefMinister, cmRevealedIndices);
         });
 
         // Initial Load
@@ -257,4 +265,5 @@
     </script>
 </body>
 </html>
+
 
